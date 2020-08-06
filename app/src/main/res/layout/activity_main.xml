@@ -32,10 +32,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="닉네임을 입력해주세요"
-        android:layout_marginTop="@android:"
-
-
-
+        android:layout_marginTop="10dp"/>
 
 
 
