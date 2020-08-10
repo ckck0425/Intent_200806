@@ -19,6 +19,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        문자발송 화면 이동
+        smsBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+//            문자 전송 화면으로 이동시 > 미리 문구를 적어서 보내자
+//            myIntent 를 가지고 갈때 > putExtra  로 데이터 담아서 보내기
+            myIntent.putExtra("sms_body", "이 앱을 ~~에서 설치해주세요.")
+
+
+            startActivity(myIntent)
+
+
+        }
+
         dialBtn.setOnClickListener {
             val inputPhoneNum = phoneNumEdt.text.toString()
 //             어디에 전화를 걸지 Uri를 이용해서 정보 저장
