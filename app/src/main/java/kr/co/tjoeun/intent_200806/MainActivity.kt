@@ -1,8 +1,10 @@
 package kr.co.tjoeun.intent_200806
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import kotlinx.android.synthetic.main.activity_edit_nic_name.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,11 +38,39 @@ class MainActivity : AppCompatActivity() {
             val myItent = Intent(this, EditNicNameActivity::class.java)
 //          단순 이동 X, 결과를 받으러 이동 => 어떤 결과를 받으러 가는건지 명시.
 //            => 고유 숫자를 임의로 지정해서 명시. => 멤버변수로 담아서 가독성 향상
-            startActivityForResult(myItent,1000)
+            startActivityForResult(myItent,REQ_FOR_NICKNAME)
+        }
+    }
+
+//    결과를 받아올 때 실행되는 함수 오버라이딩
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        requestCode 를 우선 검사 => 뭘 가지러 다녀온건지 확인
+//        닉네임을 가지러 다녀온게 맞는지 ? => requestCode의 값이 REQ_FOR_NICKNAME인지 ?
+        if (requestCode == REQ_FOR_NICKNAME){
+
+//            닉네임 변경은 => 확인을 눌렀을때만 하고싶다
+//            확인이 눌린게 맞는지 ? => resultCode의 값이 RESULT_OK 인지 ?
+            if (resultCode == Activity.RESULT_OK){
+
+//                돌아올때 들고온 새 닉네임을 txt 에 반영
+//                data 인텐트가 => resultIntent를 들고 있다 => 거기(data)에서 string을 뽑아내기
+                val newNickname = data?.getStringExtra("newNickname")
+
+                nickNameTxt.text = newNickname
+
+
+            }
 
         }
 
 
 
+
+
+
     }
+
 }
