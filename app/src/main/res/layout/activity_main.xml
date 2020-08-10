@@ -41,7 +41,7 @@
         android:text="닉네임 변경"/>
 
     <EditText
-        android:id="@+id/"
+        android:id="@+id/phoneNumEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="전화/문자를 연결할 번호 입력"
@@ -54,13 +54,10 @@
         android:text="전화걸기 (DIAL)"/>
 
     <Button
-        android:id="@+id/"
+        android:id="@+id/callBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ca"
-
-
-
+        android:text=" (CALL)"/>
 
 
 

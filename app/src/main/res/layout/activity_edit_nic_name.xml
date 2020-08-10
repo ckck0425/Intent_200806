@@ -9,7 +9,7 @@
     tools:context=".EditNicNameActivity">
 
     <TextView
-        android:id="@+id/changeNickNameBtn"
+        android:id="@+id/nickNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="변경할 닉네임"/>
