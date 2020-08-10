@@ -19,6 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        카카오앱 스토어앱 링크로 보내기
+        kakaoplaystoreBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW,myUri)
+            startActivity(myIntent)
+        }
+
+
+//        네이버 웹 링크로 보내기
+        naverlinkBtn.setOnClickListener {
+            val myUri = Uri.parse("https://naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW,myUri)
+            startActivity(myIntent)
+        }
+
 //        문자발송 화면 이동
         smsBtn.setOnClickListener {
             val inputPhoneNum = phoneNumEdt.text.toString()
